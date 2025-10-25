@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Transições entre telas (0 → 1 → 2 → 3)
-    setTimeout(nextScreen, 8000);  // 0 → 1
-    setTimeout(nextScreen, 16000);  // 1 → 2
-    setTimeout(nextScreen, 24000);  // 2 → 3
+    setTimeout(() => nextScreen(), 10000); // 0 → 1 (3s vis + 7s fade)
+    setTimeout(() => nextScreen(), 24000); // 1 → 2 (4s vis + 7s fade)
+    setTimeout(() => nextScreen(), 43000); // 2 → 3 (5s vis + 7s fade)
   }, { once: true });
 
   /* === Controle manual da música === */
@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     isPlaying = !isPlaying;
   });
 });
+
 
 
 
