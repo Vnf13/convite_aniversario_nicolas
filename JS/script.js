@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Transições entre telas (0 → 1 → 2 → 3)
     setTimeout(() => nextScreen(), 4000); // 0 → 1  (3s vis + 5s fade)
-    setTimeout(() => nextScreen(), 8000); // 1 → 2 (4s vis + 5s fade)
-    setTimeout(() => nextScreen(), 16000); // 2 → 3 (5s vis + 5s fade)
+    setTimeout(() => nextScreen(), 12000); // 1 → 2 (4s vis + 5s fade)
+    setTimeout(() => nextScreen(), 20000); // 2 → 3 (5s vis + 5s fade)
 
   }, { once: true });
 
@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     isPlaying = !isPlaying;
   });
 });
+
 
 
 
