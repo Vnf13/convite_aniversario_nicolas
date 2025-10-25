@@ -21,7 +21,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("../Assets/img/fundo.png") center/cover no-repeat;
+  background: url("../Assets/Img/fundo.png") center/cover no-repeat;
   background-attachment: fixed;
 }
 
@@ -267,3 +267,4 @@ body {
   0%, 100% { opacity: 0.8; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.05); }
 }
+
