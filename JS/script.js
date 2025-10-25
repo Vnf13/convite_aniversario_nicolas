@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Transições entre telas (0 → 1 → 2 → 3)
-    setTimeout(nextScreen, 8000);  // 0 → 1
-    setTimeout(nextScreen, 1600);  // 1 → 2
-    setTimeout(nextScreen, 24000);  // 2 → 3
+    setTimeout(nextScreen, 3000);  // 0 → 1
+    setTimeout(nextScreen, 6000);  // 1 → 2
+    setTimeout(nextScreen, 9000);  // 2 → 3
   }, { once: true });
 
   /* === Controle manual da música === */
@@ -46,3 +46,4 @@ document.addEventListener("DOMContentLoaded", () => {
     isPlaying = !isPlaying;
   });
 });
+
