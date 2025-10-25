@@ -1,0 +1,269 @@
+/* === Fonte personalizada === */
+@font-face {
+  font-family: "Xiomara";
+  src: url("../Assets/Fontes/Xiomara-Script.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* === Reset e base === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Xiomara", "Poppins", cursive, sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  color: #013a63;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../Assets/img/fundo.png") center/cover no-repeat;
+  background-attachment: fixed;
+}
+
+/* === Estrutura geral === */
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* === Telas === */
+.screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 4s ease-in-out;
+  text-align: center;
+  backdrop-filter: blur(1.5px);
+}
+
+.screen.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* === Conteúdo === */
+.content h1 {
+  font-family: "Xiomara", cursive;
+  font-size: 2.8rem; 
+  margin-bottom: 1rem;
+  text-align: center;
+  background: linear-gradient(90deg, #001f3f, #002b5b, #004080); /* azul mais escuro no início */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+  animation: fadeText 1.2s ease-in-out forwards, floatText 4s ease-in-out infinite;
+}
+
+
+
+/* Pequena animação de “flutuar” */
+@keyframes floatText {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Fade suave */
+@keyframes fadeText {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.content p {
+  font-size: 1.5rem;
+  color: #023e8a;
+  margin-bottom: 0.3rem;
+}
+
+.stitch {
+  width: 300px;
+  height: auto;
+  margin-top: 20px;
+  animation: fadeUp 1.4s ease;
+}
+
+/* === FOTO DO NICOLAS COM CÍRCULOS DECORATIVOS === */
+.foto-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.foto {
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #0096c7;
+  box-shadow: 0 0 25px rgba(0, 150, 255, 0.4);
+  position: relative;
+  z-index: 2;
+  animation: fadeUp 1.4s ease;
+}
+
+.foto-container::before,
+.foto-container::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  animation: pulseCircle 4s infinite ease-in-out;
+}
+
+.foto-container::before {
+  width: 676px;   /* círculo externo maior */
+  height: 676px;
+  top: -63px;     /* centralizando em relação à foto */
+  left: -63px;
+  border: 2px solid rgba(0, 170, 255, 0.3);
+}
+
+.foto-container::after {
+  width: 760px;   /* círculo externo ainda maior */
+  height: 760px;
+  top: -105px;    /* centralizando */
+  left: -105px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes pulseCircle {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* === Botões === */
+.buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  background: #0096c7;
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.3s;
+  font-family: "Poppins", sans-serif;
+}
+
+.btn:hover {
+  background: #0077b6;
+  transform: scale(1.05);
+}
+
+.confirm {
+  background: #00b4d8;
+}
+
+.confirm:hover {
+  background: #0077b6;
+}
+
+/* === Controle de música === */
+.music-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+#musicToggle {
+  background: #0096c7;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background 0.3s;
+}
+
+#musicToggle:hover {
+  transform: scale(1.1);
+  background: #0077b6;
+}
+
+/* === Animações === */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Responsividade === */
+@media (max-width: 600px) {
+  .content h1 {
+    font-size: 1.8rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1rem;
+  }
+
+  .foto {
+    width: 180px;
+    height: 180px;
+  }
+
+  .foto-container::before {
+    width: 220px;
+    height: 220px;
+    top: -20px;
+    left: -20px;
+  }
+
+  .foto-container::after {
+    width: 260px;
+    height: 260px;
+    top: -40px;
+    left: -40px;
+  }
+}
+
+/* === Tela inicial === */
+.intro-text {
+  font-family: 'Xiomara', cursive;
+  font-size: 2.2rem;
+  text-align: center;
+  color: #1e90ff;
+  text-shadow: 0 0 12px rgba(30, 144, 255, 0.6);
+  line-height: 1.4;
+}
+
+.intro-text u {
+  text-decoration-color: rgba(30, 144, 255, 0.6);
+  text-underline-offset: 6px;
+}
+
+.intro-subtext {
+  font-size: 1.4rem;
+  font-family: 'Xiomara', cursive;
+  margin-top: 1.5rem;
+  text-align: center;
+  color: #ffffffcc;
+  animation: pulse 2s infinite;
+}
+
+/* Pequeno brilho no “toque na tela” */
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
